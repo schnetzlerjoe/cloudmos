@@ -59,7 +59,7 @@ const AddressDeploymentsPage: React.FunctionComponent<Props> = ({ address }) => 
 
   return (
     <Layout>
-      <CustomNextSeo title={`Account ${address} deployments`} url={`https://deploy.cloudmos.io${UrlService.addressDeployments(address)}`} />
+      <CustomNextSeo title={`Account ${address} deployments`} url={`https://console.akash.network${UrlService.addressDeployments(address)}`} />
 
       <AddressLayout page="deployments" address={address}>
         <Box sx={{ mt: "1rem" }}>

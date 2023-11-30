@@ -102,7 +102,7 @@ const AddressDetailPage: React.FunctionComponent<Props> = ({ address, addressDet
 
   return (
     <Layout>
-      <CustomNextSeo title={`Account ${address}`} url={`https://deploy.cloudmos.io${UrlService.address(address)}`} />
+      <CustomNextSeo title={`Account ${address}`} url={`https://console.akash.network${UrlService.address(address)}`} />
       <SendAktModal onClose={() => setIsShowingSendModal(false)} open={isShowingSendModal} toAddress={address} />
       {showMustConnectModal && <MustConnectModal message={showMustConnectModal} onClose={() => setShowMustConnectModal(null)} />}
 

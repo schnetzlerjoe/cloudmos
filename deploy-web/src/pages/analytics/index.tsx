@@ -26,7 +26,7 @@ const DashboardPage: React.FunctionComponent<Props> = ({}) => {
     <Layout isUsingSettings={false} isUsingWallet={false}>
       <CustomNextSeo
         title="Analytics"
-        url={`https://deploy.cloudmos.io${UrlService.analytics()}`}
+        url={`https://console.akash.network${UrlService.analytics()}`}
         description="Akash Network's #1 analytics hub. Explore the number of $AKT spent, the network capacity (CPU, GPU, RAM, DISK), historical data and much more!"
       />
 
