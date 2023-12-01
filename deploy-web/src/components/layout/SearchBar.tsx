@@ -131,59 +131,61 @@ const SearchBar: React.FunctionComponent<Props> = ({ isMobileSearch, onSearchClo
   };
 
   return (
-    <Box sx={{ padding: { xs: 0, sm: "1rem" }, maxWidth: { xs: "100%", sm: "100%", md: "600px" }, flexGrow: 1, position: "relative" }}>
-      <form onSubmit={onSubmit}>
-        <OutlinedInput
-          fullWidth
-          autoFocus
-          value={searchTerms}
-          onChange={onSearchTermsChange}
-          onClick={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          placeholder="Search by Address, Block Height, TxHash..."
-          size="small"
-          classes={{ input: classes.searchBar, notchedOutline: classes.searchBarFocused }}
-          endAdornment={
-            <InputAdornment position="end">
-              {(hasSearchTerms || isMobileSearch) && (
-                <IconButton type="button" size="small" classes={{ disabled: classes.button }} onClick={onClear}>
-                  <CloseIcon fontSize="small" />
-                </IconButton>
-              )}
+    <Box sx={{ padding: { xs: 0, sm: 0, md: "0 1rem" }, maxWidth: { xs: "100%", sm: "100%" }, flexGrow: 1, position: "relative" }}>
+      <Box sx={{ position: "relative" }}>
+        <form onSubmit={onSubmit}>
+          <OutlinedInput
+            fullWidth
+            autoFocus
+            value={searchTerms}
+            onChange={onSearchTermsChange}
+            onClick={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            placeholder="Search by Address, Block Height, TxHash..."
+            size="small"
+            classes={{ input: classes.searchBar, notchedOutline: classes.searchBarFocused }}
+            endAdornment={
+              <InputAdornment position="end">
+                {(hasSearchTerms || isMobileSearch) && (
+                  <IconButton type="button" size="small" classes={{ disabled: classes.button }} onClick={onClear}>
+                    <CloseIcon fontSize="small" />
+                  </IconButton>
+                )}
 
-              {isMobileSearch ? (
-                <IconButton
-                  type="submit"
-                  disabled={searchType === null || !hasSearchTerms}
-                  size="small"
-                  classes={{ disabled: classes.button }}
-                  sx={{ marginLeft: ".5rem" }}
-                >
-                  <SearchIcon fontSize="small" />
-                </IconButton>
-              ) : (
-                <Button
-                  type="submit"
-                  disabled={searchType === null || !hasSearchTerms}
-                  size="small"
-                  classes={{ disabled: classes.button }}
-                  sx={{ marginLeft: hasSearchTerms ? ".5rem" : 0 }}
-                >
-                  {getSearchBtnLabel(searchType)}
-                </Button>
-              )}
-            </InputAdornment>
-          }
-        />
+                {isMobileSearch ? (
+                  <IconButton
+                    type="submit"
+                    disabled={searchType === null || !hasSearchTerms}
+                    size="small"
+                    classes={{ disabled: classes.button }}
+                    sx={{ marginLeft: ".5rem" }}
+                  >
+                    <SearchIcon fontSize="small" />
+                  </IconButton>
+                ) : (
+                  <Button
+                    type="submit"
+                    disabled={searchType === null || !hasSearchTerms}
+                    size="small"
+                    classes={{ disabled: classes.button }}
+                    sx={{ marginLeft: hasSearchTerms ? ".5rem" : 0 }}
+                  >
+                    {getSearchBtnLabel(searchType)}
+                  </Button>
+                )}
+              </InputAdornment>
+            }
+          />
 
-        {searchType === null && searchTerms.trim() && isFocused && (
-          <Box sx={{ position: "absolute", left: 0, width: "100%", bottom: { xs: "-3rem", sm: "-2rem" } }}>
-            <Paper elevation={2} sx={{ padding: ".5rem 1rem" }}>
-              Invalid search term
-            </Paper>
-          </Box>
-        )}
-      </form>
+          {searchType === null && searchTerms.trim() && isFocused && (
+            <Box sx={{ position: "absolute", left: 0, width: "100%", bottom: { xs: "-2.5rem", sm: "-2.5rem" } }}>
+              <Paper elevation={2} sx={{ padding: ".5rem 1rem" }}>
+                Invalid search term
+              </Paper>
+            </Box>
+          )}
+        </form>
+      </Box>
     </Box>
   );
 };
